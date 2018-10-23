@@ -44,11 +44,37 @@ namespace Lab1
         {
             cryptUsed = defaultCryptChars;
             cryptPathUsedText.Text = cryptUsed;
+            int pos = 0;
+            foreach (char c in defaultCryptChars)
+            {
+                defaultCrypt[pos] = c;
+                pos++;
+            }
             MessageBox.Show("Default encrypt option selected !", "Info");
         }
 
         private void RandomEncryptBtn_Click(object sender, EventArgs e)
         {
+            string newCharList = "";
+            Random random = new Random();
+            List<char> newList = new List<char>();
+            for (int i = 0; i < 27; i++)
+                newList.Add('0');
+            foreach (char c in alphabet)
+            {
+                int pos = random.Next(27);
+                while (newList[pos] != '0')
+                    pos = random.Next(27);
+                if (c != '_')
+                    newList[pos] = char.ToUpper(c);
+                else
+                    newList[pos] = c;
+               
+            }
+            defaultCrypt = newList;
+            for (int i = 0; i < 27; i++)
+                newCharList += newList[i];
+            cryptPathUsedText.Text = newCharList;
             MessageBox.Show("Random encrypt option selected !", "Info");
         }
 
