@@ -1,0 +1,9 @@
+E:\IT\GitHub\Cripto\Lab1\Lab1\bin\Debug\Lab1.exe.config
+E:\IT\GitHub\Cripto\Lab1\Lab1\bin\Debug\Lab1.exe
+E:\IT\GitHub\Cripto\Lab1\Lab1\bin\Debug\Lab1.pdb
+E:\IT\GitHub\Cripto\Lab1\Lab1\obj\Debug\Lab1.csprojResolveAssemblyReference.cache
+E:\IT\GitHub\Cripto\Lab1\Lab1\obj\Debug\Lab1.Form1.resources
+E:\IT\GitHub\Cripto\Lab1\Lab1\obj\Debug\Lab1.Properties.Resources.resources
+E:\IT\GitHub\Cripto\Lab1\Lab1\obj\Debug\Lab1.csproj.GenerateResource.Cache
+E:\IT\GitHub\Cripto\Lab1\Lab1\obj\Debug\Lab1.exe
+E:\IT\GitHub\Cripto\Lab1\Lab1\obj\Debug\Lab1.pdb
