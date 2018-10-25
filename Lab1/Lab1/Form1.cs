@@ -14,10 +14,10 @@ namespace Lab1
     public partial class Form1 : Form
     {
 
-        List<char> chars = new List<char>();
-        List<char> defaultCrypt = new List<char>();
+        List<char> alphabetList = new List<char>();
+        List<char> defaultEncryptList = new List<char>();
         private string alphabet = "_abcdefghijklmnopqrstuvwxyz";
-        private string defaultCryptChars = "PYNWLZTXRVUOSMQFJDHBK_ICGAE";
+        private string defaultEncryptChars = "PYNWLZTXRVUOSMQFJDHBK_ICGAE";
         public string cryptUsed;
 
         public Form1()
@@ -31,23 +31,23 @@ namespace Lab1
         {
             foreach (char c in alphabet)
             {
-                chars.Add(c);
+                alphabetList.Add(c);
             }
-            foreach (char c in defaultCryptChars)
+            foreach (char c in defaultEncryptChars)
             {
-                defaultCrypt.Add(c);
+                defaultEncryptList.Add(c);
             }
-            cryptUsed = defaultCryptChars;
+            cryptUsed = defaultEncryptChars;
         }
 
         private void defaultEncryptBtn_Click(object sender, EventArgs e)
         {
-            cryptUsed = defaultCryptChars;
+            cryptUsed = defaultEncryptChars;
             cryptPathUsedText.Text = cryptUsed;
             int pos = 0;
-            foreach (char c in defaultCryptChars)
+            foreach (char c in defaultEncryptChars)
             {
-                defaultCrypt[pos] = c;
+                defaultEncryptList[pos] = c;
                 pos++;
             }
             MessageBox.Show("Default encrypt option selected !", "Info");
@@ -57,23 +57,23 @@ namespace Lab1
         {
             string newCharList = "";
             Random random = new Random();
-            List<char> newList = new List<char>();
+            List<char> newEncryptList = new List<char>();
             for (int i = 0; i < 27; i++)
-                newList.Add('0');
+                newEncryptList.Add('0');
             foreach (char c in alphabet)
             {
                 int pos = random.Next(27);
-                while (newList[pos] != '0')
+                while (newEncryptList[pos] != '0')
                     pos = random.Next(27);
                 if (c != '_')
-                    newList[pos] = char.ToUpper(c);
+                    newEncryptList[pos] = char.ToUpper(c);
                 else
-                    newList[pos] = c;
+                    newEncryptList[pos] = c;
                
             }
-            defaultCrypt = newList;
+            defaultEncryptList = newEncryptList;
             for (int i = 0; i < 27; i++)
-                newCharList += newList[i];
+                newCharList += newEncryptList[i];
             cryptPathUsedText.Text = newCharList;
             MessageBox.Show("Random encrypt option selected !", "Info");
         }
@@ -82,23 +82,23 @@ namespace Lab1
         {
             if (customCryptText.Text.Length != 27)
             {
-                MessageBox.Show("You need to have 27 characters including '_' !", "Error");
+                MessageBox.Show("You need to have 26 unique alphabet characters plus one '_' !", "Error");
             }
             else
             {
                 string newText = customCryptText.Text;
-                if (checkIfIsOnlyUppCase(newText) && checkIfThereAreDuplicates(newText))
+                if (isOnlyUppCase(newText) && !thereAreDuplicates(newText) && validCharacters(newText))
                 {
                     int pos = 0;
                     foreach (char c in newText)
                     {
-                        defaultCrypt[pos] = c;
+                        defaultEncryptList[pos] = c;
                         pos++;
                     }
                     cryptUsed = customCryptText.Text;
                     cryptPathUsedText.Text = cryptUsed;
                     MessageBox.Show("You are now using your entered encrypt path !", "Info");
-                } else MessageBox.Show("Only unique upp case characters are accepted !", "Error");
+                } else MessageBox.Show("Lowcase, duplicate or invalid character detected !", "Error");
             }
         }
 
@@ -107,14 +107,14 @@ namespace Lab1
             string input = inputText.Text;
             string output = "";
             int index = -1;
-            if (checkIfIsOnlyLowCase(input))
+            if (isOnlyLowCase(input))
             {
                 foreach (char c in input)
                 {
-                    if (chars.Contains(c))
+                    if (alphabetList.Contains(c))
                     {
-                        index = chars.IndexOf(c);
-                        output += defaultCrypt[index];
+                        index = alphabetList.IndexOf(c);
+                        output += defaultEncryptList[index];
                     }
                     else
                     {
@@ -133,14 +133,14 @@ namespace Lab1
             string output = "";
             inputText.Text = "";
             int index = -1;
-            if (checkIfIsOnlyUppCase(input))
+            if (isOnlyUppCase(input))
             {
                 foreach (char c in input)
                 {
-                    if (defaultCrypt.Contains(c))
+                    if (defaultEncryptList.Contains(c))
                     {
-                        index = defaultCrypt.IndexOf(c);
-                        output += chars[index];
+                        index = defaultEncryptList.IndexOf(c);
+                        output += alphabetList[index];
                     }
                     else
                     {
@@ -153,7 +153,7 @@ namespace Lab1
             else MessageBox.Show("Only upp case characters are accepted !", "Error");
         }
 
-        private bool checkIfIsOnlyLowCase(string text)
+        private bool isOnlyLowCase(string text)
         {
             foreach (char c in text)
                 if (c != '_')
@@ -162,20 +162,28 @@ namespace Lab1
             return true;
         }
 
-        private bool checkIfThereAreDuplicates(string text)
+        private bool thereAreDuplicates(string text)
         {
             foreach (char c in text)
                 if (text.Count(i => i == c) > 1)
-                    return false;
-            return true;
+                    return true;
+            return false;
         }
 
-        private bool checkIfIsOnlyUppCase(string text)
+        private bool isOnlyUppCase(string text)
         {
             foreach (char c in text)
                 if (c != '_')
                     if (char.IsLower(c))
                         return false;
+            return true;
+        }
+
+        private bool validCharacters(string text)
+        {
+            foreach (char c in text)
+                if (!alphabet.Contains(char.ToLower(c)))
+                    return false;
             return true;
         }
     }
