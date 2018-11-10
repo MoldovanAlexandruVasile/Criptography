@@ -1,0 +1,50 @@
+﻿
+	Encryption used: Substitution Cipher
+	The GUI is composed of:
+		- Input/Output text field for plain text
+		- Input/Output text field for encrypted text
+		- Encrypt button - takes the input from plain text field and its encrypted text is displayed into encrypted text field
+		- Decrypt button - takes the input from encrypted text field and its decrypted text is displayed into plain text field
+		- Input for a custom encrypt key
+		- Use custom encrypt key button - uses for encryption the input given by the user
+		- A text view that displays (for an easier usage of the program) the current used encryption key
+		- Default encrypt button that uses the default encryption key given in the program (cannot be changed the default encrypt key)
+			- Default encrypt key used: PYNWLZTXRVUOSMQFJDHBK_ICGAE
+			- Ex: ana_are_mere -> YQYPYHZPMZHZ
+		- Random encrypt key button that generates a random encryption key and then can be used by the user
+			- Ex for encryption key randomly generated: BTXGWYL_HPANIDMQCJKVSUZEOFR
+				ana_are_mere -> TMTBTKYBDYKY
+		- My encrypt key button that uses an encryption key given by me.
+			- My encrypt key used: TLYXSZPICEMNBGDWOQRAUHFK_JV
+			- Ex: ana_are_mere -> LDLTLRZTGZRZ
+
+	Each button mentioned above, excepting "Encrypt" and "Decrypt" buttons, each one after being pressed, 
+displayes an info message for the user that aknowledge him the encryption key was modified.
+	The plain text must be computed only of lowcase characters.
+	The decryption text must be computed only of uppercase characters.
+	There are 4 strings defined: the "alphabet" - composed of all admited characters, "defaultEncryptChars" - composed of default 
+encryption key the one is used after starting the program, "myEncryptChars" - encryption key chosen by me and the last one that contains
+the encrypt and the las one is "encryptKeyUsed" where is always the used encrypt key.
+	There are 3 lists of chars: "alphabetList" - composed of the characters from "alphabet" string, "usedEncryptKeyList" - composed of
+the characters used as encrypt key at that moment, "myEncryptKeyList" - composed of the characters of the encrypt key defined by me.
+	For each button there is a method that is called when the button is pressed:
+		- encryptBtn_Click - encrypt the text from plain text and outputs into encrypted text field
+		- decryptBtn_Click - decrypts the text from encrypted text field and outputs into plain text field
+		- inputEncryptBtn_Click - validates the input. If it is correctly formated then the inserted encrypted key is used, otherwise 
+								an informative message box is displayed
+		- RandomEncryptBtn_Click - generates a random encryption key and then it can be used
+		- myEncryptKey_Click - uses the encryption key genereted by me
+		- defaultEncryptBtn_Click - uses the default encryption key that was used at the very beginning
+		- initCharsListAndDefaultCrypt - the method initialize the lists with the strings mentioned above:
+											- alphabetList with alphabet
+											- usedEncryptKeyList with defaultEncryptKeyChars
+											- myEncryptKeyList with myEncryptKeyUsed
+		- isOnlyLowCase - returns boolean <-> verify if the string passed as parameter in the method contains only low case characters
+		- isOnlyUppCase - returns boolean <-> verify if the string passed as parameter in the method contains only upp case characters
+		- validCharacters - returns boolean <-> verify if the string passed as parameter contains only characters from the used alphabet
+		- thereAreDuplicates - returns boolean <-> verify if the string passed as parameter contains unique characters in it.
+
+	Hardware used:
+		- 8 GB RAM
+		- Processor: IntelCore I7
+		- 2.50 GHz

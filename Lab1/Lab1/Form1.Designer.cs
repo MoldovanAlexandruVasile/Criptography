@@ -41,6 +41,7 @@
             this.inputEncryptBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.cryptPathUsedText = new System.Windows.Forms.TextBox();
+            this.myEncryptKey = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // inputText
@@ -66,9 +67,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(48, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 17);
+            this.label1.Size = new System.Drawing.Size(69, 17);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Input:";
+            this.label1.Text = "Plain text:";
             // 
             // label2
             // 
@@ -99,9 +100,9 @@
             // 
             // defaultEncryptBtn
             // 
-            this.defaultEncryptBtn.Location = new System.Drawing.Point(531, 677);
+            this.defaultEncryptBtn.Location = new System.Drawing.Point(531, 461);
             this.defaultEncryptBtn.Name = "defaultEncryptBtn";
-            this.defaultEncryptBtn.Size = new System.Drawing.Size(117, 53);
+            this.defaultEncryptBtn.Size = new System.Drawing.Size(296, 53);
             this.defaultEncryptBtn.TabIndex = 6;
             this.defaultEncryptBtn.Text = "Default encrypt";
             this.defaultEncryptBtn.UseVisualStyleBackColor = true;
@@ -109,9 +110,9 @@
             // 
             // RandomEncryptBtn
             // 
-            this.RandomEncryptBtn.Location = new System.Drawing.Point(706, 677);
+            this.RandomEncryptBtn.Location = new System.Drawing.Point(531, 545);
             this.RandomEncryptBtn.Name = "RandomEncryptBtn";
-            this.RandomEncryptBtn.Size = new System.Drawing.Size(121, 53);
+            this.RandomEncryptBtn.Size = new System.Drawing.Size(296, 53);
             this.RandomEncryptBtn.TabIndex = 7;
             this.RandomEncryptBtn.Text = "Random encrypt";
             this.RandomEncryptBtn.UseVisualStyleBackColor = true;
@@ -119,54 +120,65 @@
             // 
             // customCryptText
             // 
-            this.customCryptText.Location = new System.Drawing.Point(531, 43);
+            this.customCryptText.Location = new System.Drawing.Point(531, 66);
             this.customCryptText.Multiline = true;
             this.customCryptText.Name = "customCryptText";
-            this.customCryptText.Size = new System.Drawing.Size(296, 261);
+            this.customCryptText.Size = new System.Drawing.Size(296, 59);
             this.customCryptText.TabIndex = 8;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(531, 23);
+            this.label3.Location = new System.Drawing.Point(531, 46);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(198, 17);
+            this.label3.Size = new System.Drawing.Size(192, 17);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Input your own ecryption path:";
+            this.label3.Text = "Input your own ecryption key:";
             // 
             // inputEncryptBtn
             // 
-            this.inputEncryptBtn.Location = new System.Drawing.Point(534, 311);
+            this.inputEncryptBtn.Location = new System.Drawing.Point(531, 131);
             this.inputEncryptBtn.Name = "inputEncryptBtn";
-            this.inputEncryptBtn.Size = new System.Drawing.Size(293, 33);
+            this.inputEncryptBtn.Size = new System.Drawing.Size(296, 33);
             this.inputEncryptBtn.TabIndex = 10;
-            this.inputEncryptBtn.Text = "Use encrypt path";
+            this.inputEncryptBtn.Text = "Use encrypt key";
             this.inputEncryptBtn.UseVisualStyleBackColor = true;
             this.inputEncryptBtn.Click += new System.EventHandler(this.inputEncryptBtn_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(531, 416);
+            this.label4.Location = new System.Drawing.Point(528, 223);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 17);
+            this.label4.Size = new System.Drawing.Size(125, 17);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Used crypting path:";
+            this.label4.Text = "Used cryption key:";
             // 
             // cryptPathUsedText
             // 
-            this.cryptPathUsedText.Location = new System.Drawing.Point(534, 437);
+            this.cryptPathUsedText.Location = new System.Drawing.Point(531, 243);
             this.cryptPathUsedText.Multiline = true;
             this.cryptPathUsedText.Name = "cryptPathUsedText";
             this.cryptPathUsedText.ReadOnly = true;
-            this.cryptPathUsedText.Size = new System.Drawing.Size(293, 166);
+            this.cryptPathUsedText.Size = new System.Drawing.Size(296, 61);
             this.cryptPathUsedText.TabIndex = 12;
+            // 
+            // myEncryptKey
+            // 
+            this.myEncryptKey.Location = new System.Drawing.Point(531, 629);
+            this.myEncryptKey.Name = "myEncryptKey";
+            this.myEncryptKey.Size = new System.Drawing.Size(296, 46);
+            this.myEncryptKey.TabIndex = 13;
+            this.myEncryptKey.Text = "My encrypt key";
+            this.myEncryptKey.UseVisualStyleBackColor = true;
+            this.myEncryptKey.Click += new System.EventHandler(this.myEncryptKey_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(894, 777);
+            this.Controls.Add(this.myEncryptKey);
             this.Controls.Add(this.cryptPathUsedText);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.inputEncryptBtn);
@@ -202,6 +214,7 @@
         private System.Windows.Forms.Button inputEncryptBtn;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox cryptPathUsedText;
+        private System.Windows.Forms.Button myEncryptKey;
     }
 }
 

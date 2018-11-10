@@ -14,17 +14,19 @@ namespace Lab1
     public partial class Form1 : Form
     {
 
-        List<char> alphabetList = new List<char>();
-        List<char> defaultEncryptList = new List<char>();
+        private List<char> alphabetList = new List<char>();
+        private List<char> usedEncryptKeyList = new List<char>();
+        private List<char> myEncryptKeyList = new List<char>();
         private string alphabet = "_abcdefghijklmnopqrstuvwxyz";
-        private string defaultEncryptChars = "PYNWLZTXRVUOSMQFJDHBK_ICGAE";
-        public string cryptUsed;
+        private string defaultEncryptKeyChars = "PYNWLZTXRVUOSMQFJDHBK_ICGAE";
+        private string myEncryptKeyChars = "TLYXSZPICEMNBGDWOQRAUHFK_JV";
+        private string encryptKeyUsed;
 
         public Form1()
         {
             InitializeComponent();
             initCharsListAndDefaultCrypt();
-            cryptPathUsedText.Text = cryptUsed;
+            cryptPathUsedText.Text = encryptKeyUsed;
         }
 
         private void initCharsListAndDefaultCrypt()
@@ -33,24 +35,44 @@ namespace Lab1
             {
                 alphabetList.Add(c);
             }
-            foreach (char c in defaultEncryptChars)
+
+            foreach (char c in defaultEncryptKeyChars)
             {
-                defaultEncryptList.Add(c);
+                usedEncryptKeyList.Add(c);
             }
-            cryptUsed = defaultEncryptChars;
+
+            foreach (char c in myEncryptKeyChars)
+            {
+                myEncryptKeyList.Add(c);
+            }
+
+            encryptKeyUsed = defaultEncryptKeyChars;
         }
 
         private void defaultEncryptBtn_Click(object sender, EventArgs e)
         {
-            cryptUsed = defaultEncryptChars;
-            cryptPathUsedText.Text = cryptUsed;
+            encryptKeyUsed = defaultEncryptKeyChars;
+            cryptPathUsedText.Text = encryptKeyUsed;
             int pos = 0;
-            foreach (char c in defaultEncryptChars)
+            foreach (char c in defaultEncryptKeyChars)
             {
-                defaultEncryptList[pos] = c;
+                usedEncryptKeyList[pos] = c;
                 pos++;
             }
             MessageBox.Show("Default encrypt option selected !", "Info");
+        }
+
+        private void myEncryptKey_Click(object sender, EventArgs e)
+        {
+            encryptKeyUsed = myEncryptKeyChars;
+            cryptPathUsedText.Text = encryptKeyUsed;
+            int pos = 0;
+            foreach (char c in myEncryptKeyChars)
+            {
+                usedEncryptKeyList[pos] = c;
+                pos++;
+            }
+            MessageBox.Show("My encrypt key option selected !", "Info");
         }
 
         private void RandomEncryptBtn_Click(object sender, EventArgs e)
@@ -71,7 +93,7 @@ namespace Lab1
                     newEncryptList[pos] = c;
                
             }
-            defaultEncryptList = newEncryptList;
+            usedEncryptKeyList = newEncryptList;
             for (int i = 0; i < 27; i++)
                 newCharList += newEncryptList[i];
             cryptPathUsedText.Text = newCharList;
@@ -92,11 +114,11 @@ namespace Lab1
                     int pos = 0;
                     foreach (char c in newText)
                     {
-                        defaultEncryptList[pos] = c;
+                        usedEncryptKeyList[pos] = c;
                         pos++;
                     }
-                    cryptUsed = customCryptText.Text;
-                    cryptPathUsedText.Text = cryptUsed;
+                    encryptKeyUsed = customCryptText.Text;
+                    cryptPathUsedText.Text = encryptKeyUsed;
                     MessageBox.Show("You are now using your entered encrypt path !", "Info");
                 } else MessageBox.Show("Lowcase, duplicate or invalid character detected !", "Error");
             }
@@ -114,7 +136,7 @@ namespace Lab1
                     if (alphabetList.Contains(c))
                     {
                         index = alphabetList.IndexOf(c);
-                        output += defaultEncryptList[index];
+                        output += usedEncryptKeyList[index];
                     }
                     else
                     {
@@ -137,9 +159,9 @@ namespace Lab1
             {
                 foreach (char c in input)
                 {
-                    if (defaultEncryptList.Contains(c))
+                    if (usedEncryptKeyList.Contains(c))
                     {
-                        index = defaultEncryptList.IndexOf(c);
+                        index = usedEncryptKeyList.IndexOf(c);
                         output += alphabetList[index];
                     }
                     else
