@@ -1,0 +1,7 @@
+﻿  Source.cpp
+e:\it\github\cripto\lab2\lab2\lab2\source.cpp(50): warning C4018: '<': signed/unsigned mismatch
+e:\it\github\cripto\lab2\lab2\lab2\source.cpp(55): warning C4018: '<': signed/unsigned mismatch
+e:\it\github\cripto\lab2\lab2\lab2\source.cpp(72): warning C4018: '<': signed/unsigned mismatch
+e:\it\github\cripto\lab2\lab2\lab2\source.cpp(16): warning C4101: 'x': unreferenced local variable
+  Lab2.vcxproj -> E:\IT\GitHub\Cripto\Lab2\Lab2\Debug\Lab2.exe
+  Lab2.vcxproj -> E:\IT\GitHub\Cripto\Lab2\Lab2\Debug\Lab2.pdb (Partial PDB)
